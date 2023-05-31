@@ -17,5 +17,10 @@ namespace BookStore.Controllers
             IEnumerable<Category> categories = _db.Categories;
             return View(categories);
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }
