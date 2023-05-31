@@ -22,6 +22,24 @@ namespace BookStore.Controllers
         {
             return View();
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Category model)
+        {
+            if (model.Name == model.DisplayOrder.ToString())
+            {
+                ModelState.AddModelError("Custom-Error", "Name & Display order can't be same");
+            }
+            if (ModelState.IsValid)
+            {
+
+                _db.Categories.Add(model);
+                _db.SaveChanges();
+                TempData["success"] = "Category created successfully.";
+                return RedirectToAction("Index");
+            }
+            return View(model);
+        }
 
         public IActionResult Edit(int? id)
         {
@@ -51,27 +69,41 @@ namespace BookStore.Controllers
 
                 _db.Categories.Update(model);
                 _db.SaveChanges();
+                TempData["success"] = "Category updated successfully.";
                 return RedirectToAction("Index");
             }
             return View(model);
         }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Create(Category model)
+        public IActionResult Delete(int? id)
         {
-            if (model.Name == model.DisplayOrder.ToString())
+            if (id == null || id == 0)
             {
-                ModelState.AddModelError("Custom-Error", "Name & Display order can't be same");
+                return NotFound();
             }
-            if (ModelState.IsValid)
-            {
+            var categoryFromDb = _db.Categories.Find(id);
 
-                _db.Categories.Add(model);
-                _db.SaveChanges();
-                return RedirectToAction("Index");
+            if (categoryFromDb == null)
+            {
+                return NotFound();
             }
-            return View(model);
+            return View(categoryFromDb);
         }
+
+        [HttpPost, ActionName("DeletePost")]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeletePost(int? id)
+        {
+            var categoryFromDb = _db.Categories.Find(id);
+            if (categoryFromDb == null)
+            {
+                return NotFound();
+            }
+
+            _db.Categories.Remove(categoryFromDb);
+            _db.SaveChanges();
+            TempData["success"] = "Category deleted successfully.";
+            return RedirectToAction("Index");
+        }
+
     }
 }
