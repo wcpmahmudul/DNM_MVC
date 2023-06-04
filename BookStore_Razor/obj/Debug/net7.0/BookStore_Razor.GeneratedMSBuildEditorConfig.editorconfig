@@ -12,9 +12,17 @@ build_property.RootNamespace = BookStore_Razor
 build_property.ProjectDir = E:\Project\Personal World\Asp.Net\Practise\DNM_MVC\BookStore_Razor\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
-build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = E:\Project\Personal World\Asp.Net\Practise\DNM_MVC\BookStore_Razor
 build_property._RazorSourceGeneratorDebug = 
+
+[E:/Project/Personal World/Asp.Net/Practise/DNM_MVC/BookStore_Razor/Pages/Categories/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcmllc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Project/Personal World/Asp.Net/Practise/DNM_MVC/BookStore_Razor/Pages/Categories/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcmllc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
 
 [E:/Project/Personal World/Asp.Net/Practise/DNM_MVC/BookStore_Razor/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
